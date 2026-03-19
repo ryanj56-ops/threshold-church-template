@@ -4,35 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO: Auto-populated by generator from cfmmap.org data -->
-  <title data-editable="page-title">Grace Fellowship Church — Las Cruces, NM</title>
-  <meta name="description" data-editable="meta-description" content="Grace Fellowship Church in Las Cruces, NM. Join us Sundays at 10:00 AM. A welcoming community of faith." />
+  <!-- SEO -->
+  <title data-editable="page-title">{{CHURCH_NAME}} — {{CITY_STATE}}</title>
+  <meta name="description" data-editable="meta-description" content="{{META_DESCRIPTION}}" />
 
-  <!-- Schema Markup: Auto-populated by generator -->
+  <!-- Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Church",
-    "name": "Grace Fellowship Church",
+    "name": "{{CHURCH_NAME}}",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1234 Faith Avenue",
-      "addressLocality": "Las Cruces",
-      "addressRegion": "NM",
-      "postalCode": "88001"
+      "streetAddress": "{{SCHEMA_STREET}}",
+      "addressLocality": "{{SCHEMA_CITY}}",
+      "addressRegion": "{{SCHEMA_STATE}}",
+      "postalCode": "{{SCHEMA_ZIP}}"
     },
-    "openingHours": "Su 10:00-12:00",
-    "telephone": "(575) 555-0100",
-    "url": "https://gracefellowship.church"
+    "openingHours": "{{SCHEMA_OPENING_HOURS}}",
+    "telephone": "{{SCHEMA_PHONE}}",
+    "url": "{{SCHEMA_URL}}"
   }
   </script>
 
-  <!-- Fonts -->
+  <!-- Fonts (pairing selected at onboarding) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="{{FONT_IMPORT_URL}}" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Brand overrides — injected at generation time -->
+  <style>
+    :root {
+      --primary:        {{PRIMARY_COLOR}};
+      --primary-dark:   {{PRIMARY_DARK}};
+      --primary-light:  {{PRIMARY_LIGHT}};
+      --accent:         {{ACCENT_COLOR}};
+      --accent-light:   {{ACCENT_LIGHT}};
+      --ch-font-heading: '{{FONT_HEADING}}', Georgia, serif;
+      --ch-font-body:    '{{FONT_BODY}}', system-ui, sans-serif;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../demo/css/style.css" />
 </head>
 <body>
 
@@ -40,16 +53,16 @@
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="#" class="site-logo">
-        <div class="logo-mark" aria-hidden="true">GF</div>
-        <span class="logo-name" data-editable="church-name">Grace Fellowship</span>
+        <div class="logo-mark" aria-hidden="true">{{LOGO_INITIALS}}</div>
+        <span class="logo-name" data-editable="church-name">{{CHURCH_NAME_SHORT}}</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="#services">Services</a>
         <a href="#about">About</a>
-        <a href="#events">Events</a>
+        <!-- TIER:GROW:START --><a href="#events">Events</a><!-- TIER:GROW:END -->
         <a href="#ministries">Ministries</a>
         <a href="#give">Give</a>
-        <a href="#contact" class="nav-cta">Visit Us</a>
+        <!-- TIER:GROW:START --><a href="#contact" class="nav-cta">Visit Us</a><!-- TIER:GROW:END -->
       </nav>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -63,13 +76,13 @@
     <div class="ch-hero__overlay" aria-hidden="true"></div>
     <div class="ch-hero__content">
       <p class="ch-hero__eyebrow">Welcome Home</p>
-      <h1 class="ch-hero__heading" data-editable="church-name">Grace Fellowship Church</h1>
-      <p class="ch-hero__tagline" data-editable="tagline">A place where everyone belongs, and every life matters.</p>
+      <h1 class="ch-hero__heading" data-editable="church-name">{{CHURCH_NAME}}</h1>
+      <p class="ch-hero__tagline" data-editable="tagline">{{TAGLINE}}</p>
       <div class="ch-hero__service-pill">
         <span class="ch-hero__pill-icon" aria-hidden="true">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </span>
-        <span data-editable="service-times">Sundays at 10:00 AM &amp; 6:00 PM</span>
+        <span data-editable="service-times">{{SERVICE_TIMES_HERO}}</span>
       </div>
       <div class="ch-hero__actions">
         <a href="#contact" class="btn btn-primary">Plan Your Visit</a>
@@ -93,21 +106,23 @@
             <li class="ch-service-item">
               <div class="ch-service-day">Sunday</div>
               <div class="ch-service-detail">
-                <span class="ch-service-time" data-editable="service-time-1">10:00 AM</span>
+                <span class="ch-service-time" data-editable="service-time-1">{{SERVICE_TIME_1}}</span>
                 <span class="ch-service-name">Morning Worship</span>
               </div>
             </li>
+            <!-- IF_SUN_PM_START -->
             <li class="ch-service-item">
               <div class="ch-service-day">Sunday</div>
               <div class="ch-service-detail">
-                <span class="ch-service-time" data-editable="service-time-2">6:00 PM</span>
+                <span class="ch-service-time" data-editable="service-time-2">{{SERVICE_TIME_2}}</span>
                 <span class="ch-service-name">Evening Service</span>
               </div>
             </li>
+            <!-- IF_SUN_PM_END -->
             <li class="ch-service-item">
               <div class="ch-service-day">Wednesday</div>
               <div class="ch-service-detail">
-                <span class="ch-service-time" data-editable="service-time-3">7:00 PM</span>
+                <span class="ch-service-time" data-editable="service-time-3">{{SERVICE_TIME_3}}</span>
                 <span class="ch-service-name">Midweek Bible Study</span>
               </div>
             </li>
@@ -119,15 +134,15 @@
           <address class="ch-address">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
-              <span data-editable="address">1234 Faith Avenue</span><br />
-              <span data-editable="city-state-zip">Las Cruces, NM 88001</span>
+              <span data-editable="address">{{ADDRESS}}</span><br />
+              <span data-editable="city-state-zip">{{CITY_STATE_ZIP}}</span>
             </div>
           </address>
           <p class="ch-location-note">Free parking available. All are welcome.</p>
-          <div class="ch-map-placeholder" role="img" aria-label="Map showing church location">
+          <a href="{{MAPS_URL}}" target="_blank" rel="noopener noreferrer" class="ch-map-placeholder" role="img" aria-label="Open location in Google Maps">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-            <p>Interactive map</p>
-          </div>
+            <p>Open in Google Maps</p>
+          </a>
         </div>
       </div>
     </div>
@@ -143,15 +158,13 @@
           </div>
           <div class="ch-pastor-nameplate">
             <p class="ch-pastor-label">Senior Pastor</p>
-            <p class="ch-pastor-name" data-editable="pastor-name">Pastor John &amp; Maria Cortez</p>
+            <p class="ch-pastor-name" data-editable="pastor-name">{{PASTOR_NAME}}</p>
           </div>
         </div>
         <div class="ch-welcome__text">
           <p class="section-label">A Word from Our Pastor</p>
           <h2 class="section-heading">You Are Welcome Here</h2>
-          <p class="ch-welcome__message" data-editable="pastor-message">
-            Whether you're searching for answers, looking for community, or simply curious about faith — our doors are open to you. We are a family-centered church rooted in Scripture, committed to love, and devoted to seeing lives transformed. We'd love to have you join us this Sunday.
-          </p>
+          <p class="ch-welcome__message" data-editable="pastor-message">{{PASTOR_MESSAGE}}</p>
           <a href="#contact" class="btn btn-outline">Plan Your First Visit</a>
         </div>
       </div>
@@ -163,10 +176,8 @@
     <div class="container">
       <div class="ch-believe__inner">
         <p class="section-label">Who We Are</p>
-        <h2 class="section-heading ch-believe__heading" data-editable="church-name">Grace Fellowship Church</h2>
-        <p class="ch-believe__body" data-editable="about-text">
-          We are a Spirit-filled, Bible-believing church committed to reaching our community with the love of Jesus Christ. Founded on the principles of discipleship, worship, and outreach, our congregation spans generations and backgrounds — united by a common faith and a shared calling to serve.
-        </p>
+        <h2 class="section-heading ch-believe__heading" data-editable="church-name">{{CHURCH_NAME}}</h2>
+        <p class="ch-believe__body" data-editable="about-text">{{ABOUT_TEXT}}</p>
         <div class="ch-believe__values">
           <div class="ch-value-card">
             <div class="ch-value-icon" aria-hidden="true">
@@ -195,7 +206,7 @@
   </section>
 
   <!-- ===================== SOCIAL FEED ===================== -->
-  <section class="ch-social" id="social">
+  <section class="ch-social" id="social" data-feed-url="/feed.json">
     <div class="container">
       <div class="ch-social__header-row">
         <div>
@@ -214,7 +225,7 @@
           </div>
           <div class="ch-social-card__body">
             <p class="ch-social-card__text">"Come to me, all who are weary and burdened, and I will give you rest." — Matthew 11:28. We're so grateful for every person who joins us each Sunday. 🙏</p>
-            <p class="ch-social-card__date">2 days ago</p>
+            <p class="ch-social-card__date">Recently</p>
           </div>
         </article>
         <article class="ch-social-card">
@@ -222,8 +233,8 @@
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           </div>
           <div class="ch-social-card__body">
-            <p class="ch-social-card__text">What a powerful midweek service! Pastor Cortez opened the book of Philippians — "I can do all things through Christ who strengthens me." Don't miss this Wednesday!</p>
-            <p class="ch-social-card__date">5 days ago</p>
+            <p class="ch-social-card__text">What a powerful midweek service! Don't miss this Wednesday's Bible study — a message that will encourage and strengthen your faith.</p>
+            <p class="ch-social-card__date">This week</p>
           </div>
         </article>
         <article class="ch-social-card">
@@ -231,14 +242,15 @@
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           </div>
           <div class="ch-social-card__body">
-            <p class="ch-social-card__text">Community Outreach Day recap — 47 volunteers, 6 neighborhoods served, hundreds of meals delivered. This is what the church is for. See you next month! 💛</p>
-            <p class="ch-social-card__date">1 week ago</p>
+            <p class="ch-social-card__text">Community outreach — volunteers serving our neighborhood together. This is what the church is for. Join us next month! 💛</p>
+            <p class="ch-social-card__date">Last week</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- TIER:GROW:START -->
   <!-- ===================== EVENTS ===================== -->
   <section class="ch-events" id="events">
     <div class="container">
@@ -251,40 +263,41 @@
       <div class="ch-events__grid">
         <article class="ch-event-card">
           <div class="ch-event-date">
-            <span class="ch-event-month">Mar</span>
-            <span class="ch-event-day">23</span>
+            <span class="ch-event-month">Soon</span>
+            <span class="ch-event-day">—</span>
           </div>
           <div class="ch-event-body">
-            <h3 class="ch-event-title">Easter Sunday Celebration</h3>
-            <p class="ch-event-meta">10:00 AM · Main Sanctuary</p>
-            <p class="ch-event-desc">Join us for a special Easter morning service with worship, prayer, and a message of hope and resurrection.</p>
+            <h3 class="ch-event-title">Sunday Morning Worship</h3>
+            <p class="ch-event-meta">{{SERVICE_TIME_1}} · Main Sanctuary</p>
+            <p class="ch-event-desc">Join us for an uplifting morning of worship, prayer, and the Word. All are welcome — come as you are.</p>
           </div>
         </article>
         <article class="ch-event-card">
           <div class="ch-event-date">
-            <span class="ch-event-month">Apr</span>
-            <span class="ch-event-day">05</span>
+            <span class="ch-event-month">Weekly</span>
+            <span class="ch-event-day">—</span>
           </div>
           <div class="ch-event-body">
-            <h3 class="ch-event-title">Community Outreach Day</h3>
-            <p class="ch-event-meta">9:00 AM · Meet in Parking Lot</p>
-            <p class="ch-event-desc">Serving our neighborhood together. Bring work gloves and a willing heart. Lunch provided for all volunteers.</p>
+            <h3 class="ch-event-title">Midweek Bible Study</h3>
+            <p class="ch-event-meta">{{SERVICE_TIME_3}} · Fellowship Hall</p>
+            <p class="ch-event-desc">Dive deeper into God's Word with our midweek gathering. A warm community awaits you every Wednesday evening.</p>
           </div>
         </article>
         <article class="ch-event-card">
           <div class="ch-event-date">
-            <span class="ch-event-month">Apr</span>
-            <span class="ch-event-day">12</span>
+            <span class="ch-event-month">Stay</span>
+            <span class="ch-event-day">—</span>
           </div>
           <div class="ch-event-body">
-            <h3 class="ch-event-title">Women's Spring Brunch</h3>
-            <p class="ch-event-meta">11:00 AM · Fellowship Hall</p>
-            <p class="ch-event-desc">A morning of encouragement, connection, and great food for all the women of our church family. RSVP appreciated.</p>
+            <h3 class="ch-event-title">More Events Coming Soon</h3>
+            <p class="ch-event-meta">Check back often</p>
+            <p class="ch-event-desc">Our calendar updates automatically from social media. Follow along and never miss what's happening at {{CHURCH_NAME_SHORT}}.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
+  <!-- TIER:GROW:END -->
 
   <!-- ===================== MINISTRIES ===================== -->
   <section class="ch-ministries" id="ministries">
@@ -344,13 +357,14 @@
           <p>Your generosity makes a real difference in our church and community. Give securely online — one time or recurring.</p>
         </div>
         <div class="ch-give__actions">
-          <a href="#" class="btn btn-give">Give Now</a>
-          <p class="ch-give__note">Secure giving powered by Stripe. Receipts sent automatically.</p>
+          <a href="{{GIVING_HREF}}" class="btn btn-give">Give Now</a>
+          <p class="ch-give__note">{{GIVING_NOTE}}</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- TIER:GROW:START -->
   <!-- ===================== CONTACT ===================== -->
   <section class="ch-contact" id="contact">
     <div class="container">
@@ -375,6 +389,10 @@
           </ul>
         </div>
         <form class="ch-visitor-form" novalidate>
+          <!-- Honeypot — hidden from humans, catches bots that auto-fill all fields -->
+          <div style="position:absolute;left:-9999px" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="ch-form-row">
             <label for="visitor-name">Your Name</label>
             <input type="text" id="visitor-name" name="name" autocomplete="name" placeholder="First &amp; Last Name" required />
@@ -397,6 +415,7 @@
       </div>
     </div>
   </section>
+  <!-- TIER:GROW:END -->
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="ch-footer">
@@ -404,22 +423,22 @@
       <div class="ch-footer__grid">
         <div class="ch-footer__brand">
           <div class="ch-footer__logo">
-            <div class="logo-mark logo-mark-sm" aria-hidden="true">GF</div>
-            <span data-editable="church-name">Grace Fellowship Church</span>
+            <div class="logo-mark logo-mark-sm" aria-hidden="true">{{LOGO_INITIALS}}</div>
+            <span data-editable="church-name">{{CHURCH_NAME}}</span>
           </div>
-          <p class="ch-footer__tagline" data-editable="tagline">A place where everyone belongs.</p>
+          <p class="ch-footer__tagline" data-editable="tagline">{{TAGLINE}}</p>
         </div>
         <div class="ch-footer__info">
           <h3>Find Us</h3>
           <address>
-            <p data-editable="address">1234 Faith Avenue</p>
-            <p data-editable="city-state-zip">Las Cruces, NM 88001</p>
-            <p><a href="tel:5755550100" data-editable="phone">(575) 555-0100</a></p>
+            <p data-editable="address">{{ADDRESS}}</p>
+            <p data-editable="city-state-zip">{{CITY_STATE_ZIP}}</p>
+            <p><a href="tel:{{PHONE_RAW}}" data-editable="phone">{{PHONE}}</a></p>
           </address>
         </div>
         <div class="ch-footer__schedule">
           <h3>Services</h3>
-          <p data-editable="service-times">Sundays: 10 AM &amp; 6 PM<br/>Wednesdays: 7 PM</p>
+          <p data-editable="service-times">{{SERVICE_TIMES_FOOTER}}</p>
         </div>
         <div class="ch-footer__social">
           <h3>Connect</h3>
@@ -437,23 +456,24 @@
         </div>
       </div>
       <div class="ch-footer__bottom">
-        <p>&copy; <span id="footer-year">2026</span> <span data-editable="church-name">Grace Fellowship Church</span>. All rights reserved.</p>
-        <p class="ch-footer__powered">Website by <a href="#">WranglR</a></p>
+        <p>&copy; <span id="footer-year"></span> {{CHURCH_NAME}}. All rights reserved.</p>
+        <p class="ch-footer__powered">Website by <a href="https://pastorsite.com">PastorSite</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="../demo/js/main.js"></script>
 
   <!-- PastorSite Editor — Supabase + inline editing for authenticated pastors -->
+  <script src="../config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // These constants are injected at site generation time by the n8n provisioning workflow.
-    // SITE_SLUG uniquely identifies this church's row in pastor_sites.
-    const SITE_SLUG        = 'grace-fellowship';  // {{SITE_SLUG}} — replaced at generation
-    const SUPABASE_URL     = 'https://uetawcmedfzrrsjiehzq.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVldGF3Y21lZGZ6cnJzamllaHpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxMjEyNTEsImV4cCI6MjA4NzY5NzI1MX0.LVq2mpcYTV67lQJ5wwNF-k0AliOZYgrtE6JE2iyYw6s';
+    // Injected at generation time by CFM_ONBOARD_ workflow
+    const SITE_SLUG        = '{{SITE_SLUG}}';
+    const SUPABASE_URL     = PASTORSITE_CONFIG.supabase.url;
+    const SUPABASE_ANON_KEY = PASTORSITE_CONFIG.supabase.anonKey;
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
   </script>
-  <script src="js/editor.js"></script>
+  <script src="../demo/js/editor.js"></script>
 </body>
 </html>
